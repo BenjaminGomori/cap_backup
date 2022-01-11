@@ -120,7 +120,9 @@ Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date
 -	Integration Developer:  
 
 ## Milestones
-
+![Milestone #1](https://github.com/ayibrahim1/Event-Management-System/milestone/1)  
+![Milestone #2](https://github.com/ayibrahim1/Event-Management-System/milestone/2)  
+![Milestone #3](https://github.com/ayibrahim1/Event-Management-System/milestone/3)
   
  
 ### github.com project link:  

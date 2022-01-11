@@ -126,8 +126,7 @@ Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date
   
  
 ### github.com project link:  
-  
-
+https://github.com/ayibrahim1/Event-Management-System  
 
 ### Weekly Meeting  
 

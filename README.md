@@ -11,8 +11,7 @@ When using the Event Management System, managers can access events and details a
 Managers can use a set of RESTful service endpoints, a simple UI, or both to communicate with Event-Management-System.  
 
 ## Storyboard  
-[StoryBoard-ED.pptx](https://github.com/ayibrahim1/Event-Management-System/files/7845689/StoryBoard-ED.pptx)  
-
+[StoryBoard-ED.pptx](https://github.com/ayibrahim1/Event-Management-System/files/7845757/StoryBoard-ED.pptx)  
 
 ## Requirments  
 
@@ -78,8 +77,7 @@ Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date
 
 ### Class Diagram  
 
-![Class Diagram-ED](https://user-images.githubusercontent.com/83904035/148925979-127898d8-ba22-4716-9dde-cce68a06e143.PNG)  
-
+![Class Diagram-ED](https://user-images.githubusercontent.com/83904035/148926602-1d7c26cb-bf3f-40c8-afeb-c7674cfab689.PNG)  
 
 ### JSON Schema  
 

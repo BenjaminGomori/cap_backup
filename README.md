@@ -3,7 +3,7 @@
 
 Design Document  
 
-Ali Ibrahim, Benjamin Gomori, Yehya Hamed
+Ali Ibrahim, Benjamin Gomori, Yehya Hamed, Kevin Zhu
 
 ## Introduction  
 

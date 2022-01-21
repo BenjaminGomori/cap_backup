@@ -3,7 +3,7 @@
 
 Design Document  
 
-Ali Ibrahim, Benjamin Gomori, Yehya Hamed, Kevin Zhu
+Ali Ibrahim, Benjamin Gomori, Kevin Zhu
 
 ## Introduction  
 
@@ -115,7 +115,7 @@ Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date
 
 - DevOps/Product Owner/Scrum Master: Ali Ibrahim  
 
--	Frontend Developer: 
+-	Frontend Developer: Kevin Zhu
 
 -	Integration Developer: Benjamin Gomori
 

@@ -117,7 +117,7 @@ Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date
 
 -	Frontend Developer: 
 
--	Integration Developer:  
+-	Integration Developer: Benjamin Gomori
 
 ## Milestones
 ![Milestone #1](https://github.com/ayibrahim1/Event-Management-System/milestone/1)  
@@ -130,4 +130,4 @@ https://github.com/ayibrahim1/Event-Management-System
 
 ### Weekly Meeting  
 
-Meeting at on  on Microsoft Teams.
+Meeting are at 3:00pm on Monday using Microsoft Teams.

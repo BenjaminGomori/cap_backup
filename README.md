@@ -131,6 +131,29 @@ Example \  Name("Event 234").
 
 ![Class Diagram-ED](https://user-images.githubusercontent.com/54749949/150756926-f6b9a42a-8746-4615-a095-3fb8d5e7a68d.png)  
 
+**EventManagmentSystemApplication** - The class that starts the Spring Boot application.
+
+**EventManagmentSystemController** - This is the class that handles all incoming requests, and sends them to the correct service and method. When the response data is ready the controller sends the response back to the requester.
+
+
+**IEventService** - An interface that provides the criteria for the required methods any implementing service class must implement.
+
+**EventServiceStub** - A demo class holding hardcoded data to allow the front-end to start their work in parallel to the backend development.
+
+**EventService** - The actual service that uses real dynamic data from a data source, and performs business logic before returning data to the controller.
+
+#### DAO:
+**IEvent** - An interfacer. The implementing class handles all the CRUD operations with the data source related to the Event entity or table.
+
+**IGroup** - An interfacer. The implementing class handles all the CRUD operations with the data source related to the Group entity or table.
+
+#### DTO:
+**IEvent** - An interfacer. The implementing class is used as an object to carry around Event data between different parts of the application. 
+
+**IGroup** - An interfacer. The implementing class is used as an object to carry around Groudata between different parts of the application. 
+
+
+
 ### JSON Schema  
 #### Event
 > {

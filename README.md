@@ -133,8 +133,8 @@ Example \  Name("Event 234").
 
 ![Class Diagram-ED](https://user-images.githubusercontent.com/54749949/150756926-f6b9a42a-8746-4615-a095-3fb8d5e7a68d.png)  
 
-### JSON Schema  
 
+### JSON Schema  
 #### Event
 > {
 >   "type": "object",
@@ -172,6 +172,7 @@ Example \  Name("Event 234").
 >    }
 >   }
 
+
 #### Group
 > {
 >   "type": "object",
@@ -185,6 +186,7 @@ Example \  Name("Event 234").
 >    }
 > }  
 
+
 ### Team Memebers and Roles  
 
 - DevOps/Product Owner/Scrum Master: Ali Ibrahim  
@@ -192,6 +194,7 @@ Example \  Name("Event 234").
 -	Frontend Developer: Kevin Zhu
 
 -	Integration Developer: Benjamin Gomori
+
 
 ## Milestones
 [Milestone #1](https://github.com/ayibrahim1/Event-Management-System/milestone/1)  

@@ -99,8 +99,6 @@ Example \  Name("Prom"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(), Time
 
 **Then**: The event information is not sent to the server, and the event is not stored in the database.
 
-
-
 ## Scenario  4
 
 As a manager I want to be able to specifically search for an event, so that I can preview that events information that is in my database.  
@@ -129,10 +127,9 @@ Example \  Name("Event 234").
 
 **Then**: No event data is retrieved from the database.
 
-### Class Diagram  
+## Class Diagram 
 
 ![Class Diagram-ED](https://user-images.githubusercontent.com/54749949/150756926-f6b9a42a-8746-4615-a095-3fb8d5e7a68d.png)  
-
 
 ### JSON Schema  
 #### Event
@@ -171,7 +168,6 @@ Example \  Name("Event 234").
 >       },
 >    }
 >   }
-
 
 #### Group
 > {

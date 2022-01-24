@@ -182,7 +182,8 @@ Example \  Name("Event 234").
 >   "name" : {
 >          "type" : "string"
 >       },
->   }
+>    }
+> }  
 
 ### Team Memebers and Roles  
 

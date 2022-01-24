@@ -11,7 +11,7 @@ When using the Event Management System, you can access and modify your events. T
 Users can use a set of RESTful service endpoints, a simple UI, or both to communicate with Event-Management-System. 
 
 ## Storyboard  
-[interactive Storyboard](https://projects.invisionapp.com/prototype/ckyt7mgsq0009b3016s0qdec5/play)
+[Interactive Storyboard](https://projects.invisionapp.com/prototype/ckyt7mgsq0009b3016s0qdec5/play)
 
 ## Requirments  
 

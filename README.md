@@ -25,25 +25,25 @@ As a manager I want to be able to edit an event's information, so that I have th
 
 **Given**: An event's information is available.    
 
-Example\  id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's 31st Birthday!!").  
+Example\  id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's 50st Birthday!!").  
 
 **When**: The manager selects edit next to the event they would like to edit, and edits the Description to "It is Sam's (CEO) 32st Birthday!!". 
 
 **Then**: Then edited information of the event is updated in the database.     
 
-Example \  id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st  Birthday!!").  
+Example \  id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 50st  Birthday!!").  
 
 ##### 1.2
 
 **Given**: An event's information is available.
 
-Example\  Id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 31st Birthday!!").
+Example\  Id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 50st Birthday!!").
 
 **When**: The manager selects edit next to the event they would like to edit, and edits the Name to an empty string "".
 
 **Then**: Then data is not updated in the database and manager receives an error message .
 
-Example \  Id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 31st Birthday!!").
+Example \  Id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 50st Birthday!!").
 
 ## Scenario 2 
 
@@ -57,7 +57,7 @@ As a manager I want to be able to delete an event, so that the event's informati
 
 **When**: The manager selects delete next to the event they would like to delete.    
 
-Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st Birthday!!").
+Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 50st Birthday!!").
 
 **Then**: Then manager can delete the event, and it is deleted from the database.   
 
@@ -67,9 +67,9 @@ Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"
 
 **When**: The manager selects delete next to the event they would like to delete, and internet connection is lost.
 
-Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st Birthday!!").
+Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 50st Birthday!!").
 
-**Then**: Then manager the event is not deleted from the database.
+**Then**: Then the event is not deleted from the database.
 
 ## Scenario 3 
 
@@ -83,7 +83,7 @@ As a manager I want to be able to add a new event, so that I can store the event
 
 **When**: The manager selects the new event tab, fills the form that shows up, and submits the form.  
 
-Example \  Name("Prom"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(04/25/2022), Time(4:00 pm), Description("Need to get balloons").
+Example \  Name("Monthly Office Event"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(04/25/2022), Time(4:00 pm), Description("Office monthly happy hour - Bowling").
 
 **Then**: The event information is saved as a new record in the database.    
 
@@ -95,7 +95,7 @@ Example \  Id(5),Name("Monthly Office Event"),Address("456 Salt Rd., Sydney, Ohi
 
 **When**: The manager selects the new event tab, fills the form that shows up, and submits the form without providing a date.
 
-Example \  Name("Prom"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(), Time(4:00 pm), Description("Office monthly happy hour - Bowling").
+Example \  Name("Monthly Office Event"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(), Time(4:00 pm), Description("Office monthly happy hour - Bowling").
 
 **Then**: The event information is not sent to the server, and the event is not stored in the database.
 
@@ -115,7 +115,7 @@ Example \  Name("Birthday").
 
 **Then**: Then manager can preview the information of the event that is in the database.    
 
-Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st Birthday!!")    
+Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 50st Birthday!!")    
 
 ##### 4.2
 

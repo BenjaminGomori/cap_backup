@@ -11,7 +11,7 @@ When using the Event Management System, managers can access events and details a
 Managers can use a set of RESTful service endpoints, a simple UI, or both to communicate with Event-Management-System.  
 
 ## Storyboard  
-[StoryBoard-ED.pptx](https://github.com/ayibrahim1/Event-Management-System/files/7845757/StoryBoard-ED.pptx)  
+[StoryBoard-ED.pptx](https://github.com/ayibrahim1/Event-Management-System/files/7924388/StoryBoard-ED.pptx)
 
 ## Requirments  
 

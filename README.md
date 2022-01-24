@@ -135,7 +135,7 @@ Example \  Name("Event 234").
 
 ### JSON Schema  
 
-## Event
+#### Event
 > {
 >   "type": "object",
 >   "properties" : {
@@ -172,7 +172,7 @@ Example \  Name("Event 234").
 >    }
 >   }
 
-## Group
+#### Group
 > {
 >   "type": "object",
 >   "properties" : {

@@ -135,6 +135,7 @@ Example \  Name("Event 234").
 
 ### JSON Schema  
 
+## Event
 > {
 >   "type": "object",
 >   "properties" : {
@@ -169,6 +170,18 @@ Example \  Name("Event 234").
 >          "type" : "int" 
 >       },
 >    }
+>   }
+
+## Group
+> {
+>   "type": "object",
+>   "properties" : {
+>       "id" : {
+>          "type" : "int"
+>    }
+>   "name" : {
+>          "type" : "string"
+>       },
 >   }
 
 ### Team Memebers and Roles  

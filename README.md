@@ -15,55 +15,99 @@ Managers can use a set of RESTful service endpoints, a simple UI, or both to com
 
 ## Requirments  
 
-## Scenario  
+## Scenario  1
 
-As a manager I want to be able to edit an events information, so that I have the updated information on my events stored in my database.  
+As a manager I want to be able to edit an event's information, so that I have the updated information on my events stored in my database.  
 
-#### Example  
+#### Examples  
 
-**Given**: An events information is available.    
+##### 1.1
 
-Example\  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's 31st Birthday!!").  
+**Given**: An event's information is available.    
 
-**When**: The manager selects edit next to the event they would like to edit.  
+Example\  id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's 31st Birthday!!").  
 
-**Then**: Then manager can edit the information of the event and it will be updated in the database.     
+**When**: The manager selects edit next to the event they would like to edit, and edits the Description to "It is Sam's (CEO) 32st Birthday!!". 
 
-Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's 32st Birthday!!").  
+**Then**: Then edited information of the event is updated in the database.     
 
-## Scenario  
+Example \  id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st  Birthday!!").  
 
-As a manager I want to be able to delete an event, so that the events information is deleted from my database.  
+##### 1.2
 
-#### Example  
+**Given**: An event's information is available.
 
-**Given**: An events information is available.
+Example\  Id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 31st Birthday!!").
+
+**When**: The manager selects edit next to the event they would like to edit, and edits the Name to an empty string "".
+
+**Then**: Then data is not updated in the database and manager receives an error message .
+
+Example \  Id(4),Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 31st Birthday!!").
+
+## Scenario 2 
+
+As a manager I want to be able to delete an event, so that the event's information is deleted from my database.  
+
+#### Examples 
+
+##### 2.1
+
+**Given**: An event's information is available.
 
 **When**: The manager selects delete next to the event they would like to delete.    
 
-Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's 32st Birthday!!").
+Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st Birthday!!").
 
-**Then**: Then manager can delete that event and it will be delete from the database.   
+**Then**: Then manager can delete the event, and it is deleted from the database.   
 
-## Scenario  
+##### 2.2
+
+**Given**: An event's information is available.
+
+**When**: The manager selects delete next to the event they would like to delete, and internet connection is lost.
+
+Example \  Id(4), Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st Birthday!!").
+
+**Then**: Then manager the event is not deleted from the database.
+
+## Scenario 3 
 
 As a manager I want to be able to add a new event, so that I can store the event information in my database.  
 
-#### Example  
+#### Examples
+
+##### 3.1
 
 **Given**: A new event tab is available.
 
-**When**: The manager selects the tab and a form show up for infomation regarding the event.  
+**When**: The manager selects the new event tab, fills the form that shows up, and submits the form.  
 
-**Then**: Then manager can add the information of the event, which includes . This information will be stored in the database.    
+Example \  Name("Prom"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(04/25/2022), Time(4:00 pm), Description("Need to get balloons").
 
-Example \  Name("Prom"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(04/25/2022), Time(4:00 pm), Description("Need to get balloons").  
+**Then**: The event information is saved as a new record in the database.    
 
-## Scenario  
+Example \  Id(5),Name("Monthly Office Event"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(04/25/2022), Time(4:00 pm), Description("Office monthly happy hour - Bowling").  
+
+##### 3.2
+
+**Given**: A new event tab is available.
+
+**When**: The manager selects the new event tab, fills the form that shows up, and submits the form without providing a date.
+
+Example \  Name("Prom"),Address("456 Salt Rd., Sydney, Ohio, USA"), Date(), Time(4:00 pm), Description("Office monthly happy hour - Bowling").
+
+**Then**: The event information is not sent to the server, and the event is not stored in the database.
+
+
+
+## Scenario  4
 
 As a manager I want to be able to specifically search for an event, so that I can preview that events information that is in my database.  
 
-#### Example  
+#### Examples  
+
+##### 4.1
 
 **Given**: A search bar is available.
 
@@ -73,7 +117,17 @@ Example \  Name("Birthday").
 
 **Then**: Then manager can preview the information of the event that is in the database.    
 
-Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's 32st Birthday!!")    
+Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date(01/28/2022), Time(5:00 pm), Description("It is Sam's (CEO) 32st Birthday!!")    
+
+##### 4.2
+
+**Given**: A search bar is available.
+
+**When**: The manager searches for a Name that does not exist in the databse.
+
+Example \  Name("Event 234").
+
+**Then**: No event data is retrieved from the database.
 
 ### Class Diagram  
 
@@ -108,6 +162,12 @@ Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date
 >       "description" : {
 >          "type" : "string" 
 >       },
+>       "groupid" : {
+>          "type" : "int" 
+>       },
+>       "room" : {
+>          "type" : "int" 
+>       },
 >    }
 >   }
 
@@ -120,9 +180,9 @@ Example \  Name("Birthday"),Address("567 Main St., Cincinnati, Ohio, USA"), Date
 -	Integration Developer: Benjamin Gomori
 
 ## Milestones
-![Milestone #1](https://github.com/ayibrahim1/Event-Management-System/milestone/1)  
-![Milestone #2](https://github.com/ayibrahim1/Event-Management-System/milestone/2)  
-![Milestone #3](https://github.com/ayibrahim1/Event-Management-System/milestone/3)
+[Milestone #1](https://github.com/ayibrahim1/Event-Management-System/milestone/1)  
+[Milestone #2](https://github.com/ayibrahim1/Event-Management-System/milestone/2)  
+[Milestone #3](https://github.com/ayibrahim1/Event-Management-System/milestone/3)
   
  
 ### github.com project link:  

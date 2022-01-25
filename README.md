@@ -7,7 +7,7 @@ Ali Ibrahim, Benjamin Gomori, Kevin Zhu
 
 ## Introduction  
 
-When using the Event Management System, you can access and modify your events. The system simply acts as a central repository for individuals or managers to store and handle events and related information. An Event Management System reduces the number of processes required to handle your events, making the administrative process considerably more efficient. Users have the ability to change or remove events as well as the information associated with them. They can add a new event to the system and search for a specific event. Each event will be related to one or many groups. For example, groups can be teams in the office that a manager wants to send the event invitation to.
+When using the Event Management System, you can access and modify your events. The system simply acts as a central repository for individuals or managers to store and handle events and related information. An Event Management System reduces the number of processes required to handle your events, making the administrative process considerably more efficient. Users have the ability to change or remove events as well as the information associated with them. They can add a new event to the system and search for a specific event. 
 Users can use a set of RESTful service endpoints, a simple UI, or both to communicate with Event-Management-System. 
 
 ## Storyboard  
@@ -129,11 +129,11 @@ Example \  Name("Event 234").
 
 ## Class Diagram 
 
-![Class Diagram-ED](https://user-images.githubusercontent.com/54749949/150756926-f6b9a42a-8746-4615-a095-3fb8d5e7a68d.png)  
+![Class Diagram-ED](https://user-images.githubusercontent.com/83904035/148926602-1d7c26cb-bf3f-40c8-afeb-c7674cfab689.PNG)  
 
 **EventManagmentSystemApplication** - The class that starts the Spring Boot application.
 
-**EventManagmentSystemController** - This is the class that handles all incoming requests, and sends them to the correct service and method. When the response data is ready the controller sends the response back to the requester.
+**EventController** - This is the class that handles all incoming requests, and sends them to the correct service and method. When the response data is ready the controller sends the response back to the requester.
 
 
 **IEventService** - An interface that provides the criteria for the required methods any implementing service class must implement.
@@ -143,19 +143,16 @@ Example \  Name("Event 234").
 **EventService** - The actual service that uses real dynamic data from a data source, and performs business logic before returning data to the controller.
 
 #### DAO:
-**IEvent** - An interfacer. The implementing class handles all the CRUD operations with the data source related to the Event entity or table.
+**IEventDAO** - An interfacer. The implementing class handles all the CRUD operations with the data source related to the Event entity or table.  
 
-**IGroup** - An interfacer. The implementing class handles all the CRUD operations with the data source related to the Group entity or table.
+**EventRepository** - We'll need code for the data access layer, so we'll create an EventRepository interface. We created an interface that extends the CrudRepository interface and has CRUD methods like save(), findAll(), findById(), deleteById(), and so on. Spring JPA generates the implementation code at runtime.  
+
 
 #### DTO:
-**IEvent** - An interfacer. The implementing class is used as an object to carry around Event data between different parts of the application. 
-
-**IGroup** - An interfacer. The implementing class is used as an object to carry around Groudata between different parts of the application. 
-
-
+**Event** - An interfacer. The implementing class is used as an object to carry around Event data between different parts of the application. 
 
 ### JSON Schema  
-#### Event
+### Event
 > {
 >   "type": "object",
 >   "properties" : {
@@ -183,28 +180,8 @@ Example \  Name("Event 234").
 >       "description" : {
 >          "type" : "string" 
 >       },
->       "groupid" : {
->          "type" : "int" 
->       },
->       "room" : {
->          "type" : "int" 
->       },
 >    }
 >   }
-
-#### Group
-> {
->   "type": "object",
->   "properties" : {
->       "id" : {
->          "type" : "int"
->    }
->   "name" : {
->          "type" : "string"
->       },
->    }
-> }  
-
 
 ### Team Memebers and Roles  
 
@@ -213,6 +190,7 @@ Example \  Name("Event 234").
 -	Frontend Developer: Kevin Zhu
 
 -	Integration Developer: Benjamin Gomori
+
 
 
 ## Milestones

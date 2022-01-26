@@ -129,7 +129,7 @@ Example \  Name("Event 234").
 
 ## Class Diagram 
 
-![Class Diagram-ED](https://user-images.githubusercontent.com/83904035/148926602-1d7c26cb-bf3f-40c8-afeb-c7674cfab689.PNG)  
+![Class Diagram-ED](https://user-images.githubusercontent.com/54749949/150756926-f6b9a42a-8746-4615-a095-3fb8d5e7a68d.png)    
 
 **EventManagmentSystemApplication** - The class that starts the Spring Boot application.
 

@@ -7,7 +7,7 @@ Ali Ibrahim, Benjamin Gomori, Kevin Zhu
 
 ## Introduction  
 
-When using the Event Management System, you can access and modify your events. The system simply acts as a central repository for individuals or managers to store and handle events and related information. An Event Management System reduces the number of processes required to handle your events, making the administrative process considerably more efficient. Users have the ability to change or remove events as well as the information associated with them. They can add a new event to the system and search for a specific event. 
+The system is a central repository for individuals or managers to store and handle events and related information. An Event Management System reduces the number of processes required to handle your events, making the administrative process considerably more efficient. Users have the ability to change or remove events as well as the information associated with them. They can add a new event to the system and search for a specific event. 
 Users can use a set of RESTful service endpoints, a simple UI, or both to communicate with Event-Management-System. 
 
 ## Storyboard  

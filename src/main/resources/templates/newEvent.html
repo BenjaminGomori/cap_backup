@@ -19,13 +19,12 @@
 <div class="container">
     <h1>Event Management System</h1>
     <hr>
-    <h2>Save Event</h2>
+    <h2>Create Event</h2>
     <form action="#" th:action="@{/save}" th:object="${event}" method="POST">
 
         <input type="text" th:field="*{name}" placeholder="Event Name" class="form-control mb-4 col-4" required>
 
-        <input type="text" th:field="*{address}" placeholder="Event Address Number" class="form-control mb-4 col-4" required>
-
+        <input type="text" th:field="*{address}" placeholder="Address" class="form-control mb-4 col-4" required>
 
         <input type="text" th:field="*{city}" placeholder="City" class="form-control mb-4 col-4" required>
 
@@ -33,13 +32,13 @@
 
         <input type="text" th:field="*{country}" placeholder="Country " class="form-control mb-4 col-4" required>
 
-        <input type="text" th:field="*{date}" placeholder="Date" class="form-control mb-4 col-4" required>
+        <input type="date" th:field="*{date}" placeholder="Date" class="form-control mb-4 col-4" required>
 
-        <input type="text" th:field="*{time}" placeholder="Time" class="form-control mb-4 col-4" required>
+        <input type="time" th:field="*{time}" placeholder="Time" class="form-control mb-4 col-4" required>
 
         <input type="text" th:field="*{description}" placeholder="Description" class="form-control mb-4 col-4" required>
 
-        <button type="submit" class="btn btn-info col-2"> Save Event</button>
+        <button type="submit" class="btn btn-info col-2">Create</button>
     </form>
 
     <hr>

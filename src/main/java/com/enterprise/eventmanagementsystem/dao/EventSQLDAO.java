@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository("eventDAO")
-public class EventSQLDAO implements IEventDAO {
+public class EventSQLDAO  implements IEventDAO {
     Map<Integer, Event> allEvents = new HashMap<>();
 
 
@@ -26,6 +26,7 @@ public class EventSQLDAO implements IEventDAO {
 
     @Override
     public Event save(Event event) throws Exception {
-        return eventRepository.save(event);
+        Event save = eventRepository.save(event);
+        return save;
     }
 }

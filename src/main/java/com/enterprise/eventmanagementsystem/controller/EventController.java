@@ -18,7 +18,7 @@ public class EventController {
     IEventService eventService;
 
 
-    @GetMapping("/")
+    @RequestMapping("/")
     public String viewHomePage(Model model) throws Exception {
         model.addAttribute("listEvents", eventService.fetchAll());
         return "index";

@@ -26,7 +26,6 @@ public class EventDAO implements IEventDAO {
 
     @Override
     public Event save(Event event) throws Exception {
-        Event save = eventRepository.save(event);
-        return save;
+        return eventRepository.save(event);
     }
 }

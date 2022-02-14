@@ -24,7 +24,7 @@ public class EventController {
     @GetMapping("/")
     public String viewHomePage(Model model) throws Exception {
         model.addAttribute("listEvents", eventService.fetchAll());
-        model.addAttribute("eventsNamesDesc", generateEventsNameDescriptions());
+        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
         return "index";
     }
 
@@ -32,7 +32,7 @@ public class EventController {
     public String showNewEventForm(Model model) throws Exception {
         Event event = new Event();
         model.addAttribute("event", event);
-        model.addAttribute("eventsNamesDesc", generateEventsNameDescriptions());
+        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
         return "newEvent";
     }
     @PostMapping("/save")
@@ -84,7 +84,7 @@ public class EventController {
     public String edit(@PathVariable(value = "id") int id, Model model) throws Exception{
         Event event = eventService.fetch(id);
         model.addAttribute("event", event);
-        model.addAttribute("eventsNamesDesc", generateEventsNameDescriptions());
+        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
         return "editEvent";
     }
 
@@ -113,11 +113,11 @@ public class EventController {
         return eventList;
     }
 
-    public List<String> generateEventsNameDescriptions() throws Exception{
-        List<String> eventsNamesDesc =  new LinkedList<>();
+    public List<String> generateEventsSearchableData() throws Exception{
+        List<String> eventsSearchableData =  new LinkedList<>();
         for (Event event:eventService.fetchAll()) {
-            eventsNamesDesc.add(event.getName() + ", "+ event.getDescription());
+            eventsSearchableData.add(event.getName() + ", "+ event.getDescription());
         }
-        return eventsNamesDesc;
+        return eventsSearchableData;
     }
 }

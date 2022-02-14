@@ -14,7 +14,7 @@
     <script type="text/javascript" th:inline="javascript">
         $(function() {
             $("#searchTerm").autocomplete({
-                source: [[${eventsNamesDesc}]],
+                source: [[${eventsSearchableData}]],
                 minLength: 2,
                 select: function(event, ui) {
                     this.value = ui.item.label;

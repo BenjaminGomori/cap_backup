@@ -36,15 +36,15 @@ class EventmanagementsystemApplicationTests {
     }
 
     private void whenCreatingNewEvent() throws ParseException {
-        event.setId(4);
-        event.setName("Birthday");
-        event.setAddress("567 Main St.");
-        event.setCity("Cincinnati");
-        event.setState("Ohio");
-        event.setCountry("USA");
-        event.setDate(new SimpleDateFormat("MM/dd/yyyy").parse("01/28/2022"));
-        event.setTime(new SimpleDateFormat("hh:mm a").parse("5:00 PM"));
-        event.setDescription("It is Sam's 31st Birthday!!");
+//        event.setId(4);
+//        event.setName("Birthday");
+//        event.setAddress("567 Main St.");
+//        event.setCity("Cincinnati");
+//        event.setState("Ohio");
+//        event.setCountry("USA");
+//        event.setDate(new SimpleDateFormat("MM/dd/yyyy").parse("01/28/2022"));
+//        event.setTime(new SimpleDateFormat("hh:mm a").parse("5:00 PM"));
+//        event.setDescription("It is Sam's 31st Birthday!!");
     }
     private void thenAddNewEvent() {
         Event createEvent = eventRepository.save(event);
@@ -61,15 +61,15 @@ class EventmanagementsystemApplicationTests {
     private void givenEventUpdates() {
     }
     private void whenEventUpdates() throws ParseException {
-        event.setId(4);
-        event.setName("Birthday");
-        event.setAddress("567 Main St.");
-        event.setCity("Cincinnati");
-        event.setState("Ohio");
-        event.setCountry("USA");
-        event.setDate(new SimpleDateFormat("MM/dd/yyyy").parse("01/28/2023"));
-        event.setTime(new SimpleDateFormat("hh:mm a").parse("5:00 PM"));
-        event.setDescription("It is Sam's 32nd Birthday!!");
+//        event.setId(4);
+//        event.setName("Birthday");
+//        event.setAddress("567 Main St.");
+//        event.setCity("Cincinnati");
+//        event.setState("Ohio");
+//        event.setCountry("USA");
+//        event.setDate(new SimpleDateFormat("MM/dd/yyyy").parse("01/28/2023"));
+//        event.setTime(new SimpleDateFormat("hh:mm a").parse("5:00 PM"));
+//        event.setDescription("It is Sam's 32nd Birthday!!");
 
     }
     private void thenEventUpdates() {

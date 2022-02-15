@@ -3,6 +3,8 @@ import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "event")
@@ -28,54 +30,11 @@ class Event {
     @Column(name = "country")
     private String country;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME, pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "date")
-    private int date;
-
-    @Column(name = "time")
-    private int time;
+    private Date date;
 
     @Column(name = "description")
     private String description;
-
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getAddress() {
-        return address + " " + city + ", " + state + " " + country;
-
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-
-    public int getDate() {
-        return date;
-    }
-    public void setDate(int date) {
-        this.date = date;
-    }
-    public int getTime() {
-        return time;
-    }
-    public void setTime(int time) {
-        this.time = time;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 }

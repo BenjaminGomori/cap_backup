@@ -32,9 +32,8 @@
 
         <input type="text" th:field="*{country}" placeholder="Country " class="form-control mb-4 col-4" required>
 
-        <input type="date" th:field="*{date}" placeholder="Date" class="form-control mb-4 col-4" required>
-
-        <input type="time" th:field="*{time}" placeholder="Time" class="form-control mb-4 col-4" required>
+        <input type="datetime-local"  placeholder="Date" class="form-control mb-4 col-4" required>
+        <input type="text" hidden th:field="*{date}" placeholder="Date" class="hid form-control mb-4 col-4" required>
 
         <input type="text" th:field="*{description}" placeholder="Description" class="form-control mb-4 col-4" required>
 
@@ -44,6 +43,19 @@
     <hr>
 
     <a th:href="@{/}"> Back to the Events List</a>
+
+    <script>
+        const timeControl = document.querySelector('input[type="datetime-local"]');
+        const timeControlHidden = document.querySelector('.hid');
+        timeControl.addEventListener('change', (event) => {
+            console.log(timeControl);
+            console.log(timeControl.value);
+            let date = new Date(timeControl.value);
+            console.log(date.toISOString().slice(0, 19).replace('T', ' '));
+            timeControlHidden.value = date.toISOString().slice(0, 19).replace('T', ' ');
+            console.log(timeControlHidden.value);
+        });
+    </script>
 </div>
 </body>
 

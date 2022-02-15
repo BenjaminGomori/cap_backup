@@ -26,6 +26,23 @@
         });
     });
 </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script type="text/javascript" th:inline="javascript">
+        $(function() {
+            $("#searchTerm").autocomplete({
+                source: [[${eventsSearchableData}]],
+                minLength: 2,
+                select: function(event, ui) {
+                    this.value = ui.item.label;
+                    $("#searchTerm").val(ui.item.value);
+                    return false;
+                }
+            });
+        });
+    </script>
+</head>
 
 <div th:replace="fragments/topnav :: navbar">
 </div>

@@ -12,13 +12,16 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+
 @Controller
 public class EventController {
 
 
     @Autowired
     IEventService eventService;
-
 
     @GetMapping("/")
     public String viewHomePage(Model model) throws Exception {
@@ -81,7 +84,6 @@ public class EventController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable(value = "id") int id, Model model) throws Exception{
-
         Event event = eventService.fetch(id);
         model.addAttribute("event", event);
         model.addAttribute("eventsSearchableData", generateEventsSearchableData());
@@ -120,5 +122,4 @@ public class EventController {
             }
             return eventsSearchableData;
         }
-    }
-
+}

@@ -9,6 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 @Controller
 public class EventController {
@@ -17,17 +23,18 @@ public class EventController {
     @Autowired
     IEventService eventService;
 
-
-    @RequestMapping("/")
+    @GetMapping("/")
     public String viewHomePage(Model model) throws Exception {
         model.addAttribute("listEvents", eventService.fetchAll());
+        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
         return "index";
     }
 
     @GetMapping("/showNewEventForm")
-    public String showNewEventForm(Model model) {
+    public String showNewEventForm(Model model) throws Exception {
         Event event = new Event();
         model.addAttribute("event", event);
+        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
         return "newEvent";
     }
     @PostMapping("/save")
@@ -76,10 +83,10 @@ public class EventController {
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable(value = "id") int id, Model model) {
-
+    public String edit(@PathVariable(value = "id") int id, Model model) throws Exception{
         Event event = eventService.fetch(id);
         model.addAttribute("event", event);
+        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
         return "editEvent";
     }
 
@@ -95,5 +102,24 @@ public class EventController {
     public Iterable<Event> fetchAllEvents() throws Exception {
         return eventService.fetchAll();
     }
-}
 
+    @GetMapping("/search/{str}")
+    @ResponseBody
+    public List<Event> searchEvents(@PathVariable(value = "str") String str) throws Exception {
+        List<Event> eventList =  new LinkedList<>();
+        for (Event event:eventService.fetchAll()) {
+            if(event.getName().contains(str) || event.getDescription().contains(str)){
+                eventList.add(event);
+            }
+        }
+        return eventList;
+    }
+
+        public List<String> generateEventsSearchableData() throws Exception{
+            List<String> eventsSearchableData =  new LinkedList<>();
+            for (Event event:eventService.fetchAll()) {
+                eventsSearchableData.add(event.getName() + ", "+ event.getDescription());
+            }
+            return eventsSearchableData;
+        }
+}

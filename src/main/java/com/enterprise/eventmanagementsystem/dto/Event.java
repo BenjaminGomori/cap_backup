@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
-@Table(name = "Event")
+@Table(name = "event")
 public @Data
 class Event {
     @Id
@@ -30,14 +30,11 @@ class Event {
     @Column(name = "country")
     private String country;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "MM/dd/yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME, pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "date")
     private Date date;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "hh:mm a")
-    @Column(name = "time")
-    private Date time;
-
     @Column(name = "description")
     private String description;
+
 }

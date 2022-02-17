@@ -6,6 +6,12 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * This is our Model Layer. This class is used to represent data that could be saved to a database.
+ * Each instance corresponds to a row in the table stored in the database.
+ * Name, address, city, state, and country, date & time, and description are all stored in the event table.
+ * @author Ali Ibrahim, Benjamin Gomori, Kevin Zhu, and Son Bo
+ */
 @Entity
 @Table(name = "event")
 public @Data

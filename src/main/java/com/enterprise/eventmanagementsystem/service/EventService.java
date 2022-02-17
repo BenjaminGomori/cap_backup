@@ -6,6 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
+/**
+ * The application's border is defined by this class.
+ * From the standpoint of interfacing client layers, it is a set of possible operations.
+ * It contains the business logic of the application, controls transactions, and coordinates replies in the execution of its operations.
+ * @author Ali Ibrahim, Benjamin Gomori, Kevin Zhu, and Son Bo
+ */
 @Service
 public class EventService implements IEventService {
 

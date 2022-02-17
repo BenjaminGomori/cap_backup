@@ -16,6 +16,12 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This class is in charge of all incoming requests, and sends them to the correct service and method.
+ * When the response data is ready the controller sends the response back to the requester.
+ * Displaying all events, adding a new event, editing event details, deleting an event, and searching for an event are all aspects of the Event Management System program.
+ * @author Ali Ibrahim, Benjamin Gomori, Kevin Zhu, Son Bo.
+ */
 @Controller
 public class EventController {
 
@@ -23,6 +29,12 @@ public class EventController {
     @Autowired
     IEventService eventService;
 
+    /**
+     * List all events.
+     * @param model
+     * @return The index page.
+     * @throws Exception
+     */
     @GetMapping("/")
     public String viewHomePage(Model model) throws Exception {
         model.addAttribute("listEvents", eventService.fetchAll());
@@ -30,6 +42,12 @@ public class EventController {
         return "index";
     }
 
+    /**
+     * Present New Event form.
+     * @param model
+     * @return new event page.
+     * @throws Exception
+     */
     @GetMapping("/showNewEventForm")
     public String showNewEventForm(Model model) throws Exception {
         Event event = new Event();
@@ -37,12 +55,25 @@ public class EventController {
         model.addAttribute("eventsSearchableData", generateEventsSearchableData());
         return "newEvent";
     }
+
+    /**
+     * Saves event to our database.
+     * @param event
+     * @return event information that will be saved in the database.
+     * @throws Exception
+     */
     @PostMapping("/save")
     public String save(@ModelAttribute("event") Event event) throws Exception {
         eventService.save(event);
         return "redirect:/";
     }
 
+    /**
+     * Create a new Event.
+     * @param event JSON Object.
+     * @return new event object.
+     * @throws Exception
+     */
     @PostMapping("/createEvent")
     public ResponseEntity createEvent(@RequestBody Event event) throws Exception {
         Event newEvent = null;
@@ -57,6 +88,13 @@ public class EventController {
         return new ResponseEntity(newEvent, headers, HttpStatus.OK);
     }
 
+    /**
+     * Save an Event created.
+     * @param id
+     * @param event
+     * @return new event object.
+     * @throws Exception
+     */
     @PostMapping("/saveEvent/{id}")
     public ResponseEntity saveEvent(@PathVariable("id") int id, @RequestBody Event event) throws Exception {
         Event newEvent = null;
@@ -72,6 +110,12 @@ public class EventController {
         return new ResponseEntity(newEvent, headers, HttpStatus.OK);
     }
 
+    /**
+     * Delete an event.
+     * @param id
+     * @return page where the deleted event does not exist anymore.
+     * @throws Exception
+     */
     @DeleteMapping("/deleteEvent/{id}")
     public ResponseEntity deleteEvent(@PathVariable("id") int id) throws Exception {
         try {
@@ -82,6 +126,13 @@ public class EventController {
         }
     }
 
+    /**
+     * Get event from the service. Set event as a model attribute to pre-populate the form.
+     * @param id
+     * @param model
+     * @return the edit event page .
+     * @throws Exception
+     */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable(value = "id") int id, Model model) throws Exception{
         Event event = eventService.fetch(id);
@@ -90,6 +141,12 @@ public class EventController {
         return "editEvent";
     }
 
+    /**
+     * Delete event.
+     * @param id
+     * @return page where the deleted event does not exist anymore.
+     * @throws Exception
+     */
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable(value = "id") int id) throws Exception {
 
@@ -97,12 +154,23 @@ public class EventController {
         return "redirect:/";
     }
 
+    /**
+     * Fetching all information regarding events.
+     * @return all information regarding events.
+     * @throws Exception
+     */
     @GetMapping("/event")
     @ResponseBody
     public Iterable<Event> fetchAllEvents() throws Exception {
         return eventService.fetchAll();
     }
 
+    /**
+     * Search for an event that exists.
+     * @param str
+     * @return all events that were similar to the search term entered into the search field.
+     * @throws Exception
+     */
     @GetMapping("/search/{str}")
     @ResponseBody
     public List<Event> searchEvents(@PathVariable(value = "str") String str) throws Exception {

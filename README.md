@@ -11,7 +11,10 @@ The system is a central repository for individuals or managers to store and hand
 Users can use a set of RESTful service endpoints, a simple UI, or both to communicate with Event-Management-System. 
 
 ## Storyboard  
-[Interactive Storyboard](https://projects.invisionapp.com/prototype/ckyt7mgsq0009b3016s0qdec5/play)
+[Interactive Storyboard](https://projects.invisionapp.com/prototype/ckyt7mgsq0009b3016s0qdec5/play)  
+
+## Database
+![Database](https://user-images.githubusercontent.com/83904035/155104851-8a55eec2-0f57-41e9-adc2-a390cac48362.PNG)  
 
 ## Requirments  
 

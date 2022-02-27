@@ -9,12 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
-import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
+
 
 /**
  * This class is in charge of all incoming requests, and sends them to the correct service and method.
@@ -38,7 +34,7 @@ public class EventController {
     @GetMapping("/")
     public String viewHomePage(Model model) throws Exception {
         model.addAttribute("listEvents", eventService.fetchAll());
-        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
+        model.addAttribute("eventsSearchableData",eventService.generateEventsSearchableData());
         return "index";
     }
 
@@ -52,7 +48,7 @@ public class EventController {
     public String showNewEventForm(Model model) throws Exception {
         Event event = new Event();
         model.addAttribute("event", event);
-        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
+        model.addAttribute("eventsSearchableData", eventService.generateEventsSearchableData());
         return "newEvent";
     }
 
@@ -137,7 +133,7 @@ public class EventController {
     public String edit(@PathVariable(value = "id") int id, Model model) throws Exception{
         Event event = eventService.fetch(id);
         model.addAttribute("event", event);
-        model.addAttribute("eventsSearchableData", generateEventsSearchableData());
+        model.addAttribute("eventsSearchableData", eventService.generateEventsSearchableData());
         return "editEvent";
     }
 
@@ -167,27 +163,13 @@ public class EventController {
 
     /**
      * Search for an event that exists.
-     * @param str
+     * @param searchText
      * @return all events that were similar to the search term entered into the search field.
      * @throws Exception
      */
     @GetMapping("/search/{str}")
     @ResponseBody
-    public List<Event> searchEvents(@PathVariable(value = "str") String str) throws Exception {
-        List<Event> eventList =  new LinkedList<>();
-        for (Event event:eventService.fetchAll()) {
-            if(event.getName().contains(str) || event.getDescription().contains(str)){
-                eventList.add(event);
-            }
-        }
-        return eventList;
+    public List<Event> searchEvents(@PathVariable(value = "str") String searchText) throws Exception{
+        return eventService.searchEvents(searchText);
     }
-
-        public List<String> generateEventsSearchableData() throws Exception{
-            List<String> eventsSearchableData =  new LinkedList<>();
-            for (Event event:eventService.fetchAll()) {
-                eventsSearchableData.add(event.getName() + ", "+ event.getDescription());
-            }
-            return eventsSearchableData;
-        }
 }

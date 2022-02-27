@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * The application's border is defined by this class.
  * From the standpoint of interfacing client layers, it is a set of possible operations.
@@ -46,5 +49,24 @@ public class EventService implements IEventService {
     @CacheEvict(value = "delete", key = "#id")
     public void delete(int id) {
         this.eventRepository.deleteById(id);
+    }
+    @Override
+    public List<String> generateEventsSearchableData() throws Exception{
+        List<String> eventsSearchableData =  new LinkedList<>();
+        for (Event event: fetchAll()) {
+            eventsSearchableData.add(event.getName() + ", "+ event.getDescription());
+        }
+        return eventsSearchableData;
+    }
+
+    @Override
+    public List<Event> searchEvents(String searchText) throws Exception {
+        List<Event> eventList =  new LinkedList<>();
+        for (Event event: fetchAll()) {
+            if(event.getName().contains(searchText) || event.getDescription().contains(searchText)){
+                eventList.add(event);
+            }
+        }
+        return eventList;
     }
 }

@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 
 
 @SpringBootTest
-class EventmanagementsystemApplicationTests {
+class EventManagementSystemApplicationTests {
 
 
 

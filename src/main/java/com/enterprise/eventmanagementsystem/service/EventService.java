@@ -23,7 +23,7 @@ public class EventService implements IEventService {
     IEventDAO eventDAO;
 
     @Autowired
-    private EventRepository eventRepository;
+    EventRepository eventRepository;
 
     public EventService(IEventDAO eventDAO)
     {

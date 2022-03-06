@@ -1,33 +1,36 @@
 package com.enterprise.eventmanagementsystem;
 import com.enterprise.eventmanagementsystem.dao.EventRepository;
 import com.enterprise.eventmanagementsystem.dto.Event;
+import com.enterprise.eventmanagementsystem.service.IEventService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 
 @SpringBootTest
 class EventmanagementsystemApplicationTests {
-
-
-
-    @MockBean
-    private Event event= new Event();
-    @MockBean
-    private EventRepository eventRepository;
+    @Autowired
+    private IEventService eventService;
+    private Event event;
 
     @Test
     void contextLoads() {
     }
     @Test
-    void addNewEvent_displayNewEvent()throws ParseException {
+    void addNewEvent_displayNewEvent() throws Exception {
         givenNewEventIsAvailable();
         whenCreatingNewEvent();
         thenAddNewEvent();
@@ -37,24 +40,24 @@ class EventmanagementsystemApplicationTests {
     }
 
     private void whenCreatingNewEvent() throws ParseException {
-//        event.setId(4);
-//        event.setName("Birthday");
-//        event.setAddress("567 Main St.");
-//        event.setCity("Cincinnati");
-//        event.setState("Ohio");
-//        event.setCountry("USA");
-//        event.setDate(new SimpleDateFormat("MM/dd/yyyy").parse("01/28/2022"));
-//        event.setTime(new SimpleDateFormat("hh:mm a").parse("5:00 PM"));
-//        event.setDescription("It is Sam's 31st Birthday!!");
+        event= new Event();
+        event.setId(1);
+        event.setName("Birthday");
+        event.setAddress("567 Main St.");
+        event.setCity("Cincinnati");
+        event.setState("Ohio");
+        event.setCountry("USA");
+        event.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2022-01-28 17:00:00"));
+        event.setDescription("It is Sam's 31st Birthday!!");
 
     }
-    private void thenAddNewEvent() {
-        Event createEvent = eventRepository.save(event);
+    private void thenAddNewEvent() throws Exception {
+        Event createEvent = eventService.save(event);
         assertEquals(event, createEvent);
-        verify(eventRepository, atLeastOnce()).save(event);
+//        verify(eventService, atLeastOnce()).save(event);
     }
     @Test
-    void saveEvent_displayEventUpdate()throws ParseException {
+    void saveEvent_displayEventUpdate() throws Exception {
         givenEventUpdates();
         whenEventUpdates();
         thenEventUpdates();
@@ -63,20 +66,48 @@ class EventmanagementsystemApplicationTests {
     private void givenEventUpdates() {
     }
     private void whenEventUpdates() throws ParseException {
-//        event.setId(4);
-//        event.setName("Birthday");
-//        event.setAddress("567 Main St.");
-//        event.setCity("Cincinnati");
-//        event.setState("Ohio");
-//        event.setCountry("USA");
-//        event.setDate(new SimpleDateFormat("MM/dd/yyyy").parse("01/28/2023"));
-//        event.setTime(new SimpleDateFormat("hh:mm a").parse("5:00 PM"));
-//        event.setDescription("It is Sam's 32nd Birthday!!");
+        event = new Event();
+        event.setId(1);
+        event.setName("Birthday");
+        event.setAddress("567 Main St.");
+        event.setCity("Cincinnati");
+        event.setState("Ohio");
+        event.setCountry("USA");
+        event.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2023-01-28 17:00:00"));
+        event.setDescription("It is Sam's 32nd Birthday!!");
     }
-    private void thenEventUpdates() {
-        eventRepository.save(event);
-        var updateEvent = eventRepository.findById(event.getId());
+    private void thenEventUpdates() throws Exception {
+        eventService.save(event);
+        var updateEvent = eventService.fetch(event.getId());
         assertEquals(event, updateEvent);
-        verify(eventRepository, atLeastOnce()).save(event);
+//        verify(eventService, atLeastOnce()).save(event);
+    }
+    @Test
+    void deleteEvent() throws Exception {
+        whenEventDeletes();
+        thenDeleteEvent();
+    }
+    private void whenEventDeletes() throws ParseException {
+        event = new Event();
+        event.setId(2);
+        event.setName("Monthly Office Event");
+        event.setAddress("456 Salt Rd.");
+        event.setCity("Sydney");
+        event.setState("Ohio");
+        event.setCountry("USA");
+        event.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2022-04-25 17:00:00"));
+        event.setDescription("Office monthly happy hour - Bowling");
+    }
+    private void thenDeleteEvent() throws Exception {
+        List<Event> eventList = new ArrayList<>();
+        eventService.save(event);
+        for (Event event: eventService.fetchAll()) {
+            eventList.add(event);
+        }
+        var deletedEvent = eventService.fetch(event.getId());
+        assertTrue(eventList.contains(deletedEvent));
+        eventService.delete(event.getId());
+        eventList = StreamSupport.stream(eventService.fetchAll().spliterator(), false).collect(Collectors.toList());
+        assertFalse(eventList.contains(deletedEvent));
     }
 }

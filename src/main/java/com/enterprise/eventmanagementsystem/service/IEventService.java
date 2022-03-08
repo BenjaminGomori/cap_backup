@@ -1,5 +1,6 @@
 package com.enterprise.eventmanagementsystem.service;
 import com.enterprise.eventmanagementsystem.dto.Event;
+import com.enterprise.eventmanagementsystem.dto.LabelValue;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public interface IEventService {
 
     void delete(int id) throws Exception;
 
-    List<String> generateEventsSearchableData() throws Exception;
+    List<LabelValue> generateEventsSearchableData() throws Exception;
 
     List<Event> searchEvents(String searchText) throws Exception;
 }

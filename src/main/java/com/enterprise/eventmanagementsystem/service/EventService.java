@@ -2,6 +2,7 @@ package com.enterprise.eventmanagementsystem.service;
 import com.enterprise.eventmanagementsystem.dao.EventRepository;
 import com.enterprise.eventmanagementsystem.dao.IEventDAO;
 import com.enterprise.eventmanagementsystem.dto.Event;
+import com.enterprise.eventmanagementsystem.dto.LabelValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
@@ -51,10 +52,13 @@ public class EventService implements IEventService {
         this.eventRepository.deleteById(id);
     }
     @Override
-    public List<String> generateEventsSearchableData() throws Exception{
-        List<String> eventsSearchableData =  new LinkedList<>();
+    public List<LabelValue> generateEventsSearchableData() throws Exception{
+        List<LabelValue> eventsSearchableData =  new LinkedList<>();
         for (Event event: fetchAll()) {
-            eventsSearchableData.add(event.getName() + ", "+ event.getDescription());
+            LabelValue labelValue = new LabelValue();
+            labelValue.setValue(event.getId());
+            labelValue.setLabel(event.getName() + ", "+ event.getDescription());
+            eventsSearchableData.add(labelValue);
         }
         return eventsSearchableData;
     }

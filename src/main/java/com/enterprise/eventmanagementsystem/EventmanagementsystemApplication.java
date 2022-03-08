@@ -11,10 +11,10 @@ import org.springframework.cache.annotation.EnableCaching;
 @SpringBootApplication
 @EnableJpaRepositories
 @EnableCaching
-public class EventManagementSystemApplication {
+public class EventmanagementsystemApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EventManagementSystemApplication.class, args);
+        SpringApplication.run(EventmanagementsystemApplication.class, args);
     }
 
 }

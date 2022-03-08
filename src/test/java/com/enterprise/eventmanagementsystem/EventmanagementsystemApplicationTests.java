@@ -10,11 +10,10 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 
 @SpringBootTest
-class EventManagementSystemApplicationTests {
+class EventmanagementsystemApplicationTests {
 
 
 

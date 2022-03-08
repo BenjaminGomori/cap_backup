@@ -20,7 +20,7 @@ public class EventDAO implements IEventDAO {
     }
 
     @Override
-    public Iterable<Event> fetchAll() throws Exception {
+    public Iterable<Event> fetchAll() {
         return eventRepository.findAll();
     }
 

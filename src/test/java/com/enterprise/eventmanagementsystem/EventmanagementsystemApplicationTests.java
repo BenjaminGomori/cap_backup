@@ -111,4 +111,29 @@ class EventmanagementsystemApplicationTests {
         eventList = StreamSupport.stream(eventService.fetchAll().spliterator(), false).collect(Collectors.toList());
         assertFalse(eventList.contains(deletedEvent));
     }
+    @Test
+    void searchEvent() throws Exception {
+        whenEventDeletes();
+        eventService.save(event);
+        whenSearchingEvent();
+        thenSearchEvent();
+    }
+
+    private void thenSearchEvent() throws Exception {
+        eventService.save(event);
+        List<Event> eventList = eventService.searchEvents(event.getName());
+        assertEquals(2, eventList.size());
+    }
+
+    private void whenSearchingEvent() throws ParseException {
+        event= new Event();
+        event.setId(3);
+        event.setName("Birthday");
+        event.setAddress("567 Main St.");
+        event.setCity("Cincinnati");
+        event.setState("Ohio");
+        event.setCountry("USA");
+        event.setDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2022-01-28 17:00:00"));
+        event.setDescription("It is Sam's 50th Birthday!!");
+    }
 }

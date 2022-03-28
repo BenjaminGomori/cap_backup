@@ -20,7 +20,6 @@ class Event {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-
     @Column(name = "name")
     private String name;
 

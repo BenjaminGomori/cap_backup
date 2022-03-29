@@ -5,16 +5,12 @@ import com.enterprise.eventmanagementsystem.service.IEventService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.verify;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -55,7 +51,6 @@ class EventmanagementsystemApplicationTests {
     private void thenAddNewEvent() throws Exception {
         Event createEvent = eventService.save(event);
         assertEquals(event, createEvent);
-//        verify(eventService, atLeastOnce()).save(event);
     }
     @Test
     void saveEvent_displayEventUpdate() throws Exception {

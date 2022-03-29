@@ -85,8 +85,8 @@ public class EventController {
 
     /**
      * Save an Event created.
-     * @param id
-     * @param event
+     * @param id Save Event
+     * @param event Save Event
      * @return new event object.
      * @throws Exception
      */
@@ -107,7 +107,7 @@ public class EventController {
 
     /**
      * Delete an event.
-     * @param id
+     * @param id Delete Event
      * @return page where the deleted event does not exist anymore.
      * @throws Exception
      */
@@ -123,7 +123,7 @@ public class EventController {
 
     /**
      * Get event from the service. Set event as a model attribute to pre-populate the form.
-     * @param id
+     * @param id Edit Event
      * @param model
      * @return the edit event page .
      * @throws Exception
@@ -138,7 +138,7 @@ public class EventController {
 
     /**
      * Delete event.
-     * @param id
+     * @param id Delete Event
      * @return page where the deleted event does not exist anymore.
      * @throws Exception
      */
@@ -162,7 +162,7 @@ public class EventController {
 
     /**
      * Search for an event that exists.
-     * @param searchText
+     * @param searchText Search for Event
      * @return all events that were similar to the search term entered into the search field.
      * @throws Exception
      */

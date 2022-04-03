@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import com.enterprise.eventmanagementsystem.exceptions.InvalidInputException;
 
 
 /**
@@ -71,15 +72,13 @@ public class EventController {
      */
     @PostMapping("/createEvent")
     public ResponseEntity createEvent(@RequestBody Event event) throws Exception {
+        if(event.getName() == null){
+            throw new InvalidInputException("Id cannot be null");
+        }
         Event newEvent;
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        try {
-            newEvent = eventService.save(event);
-        } catch (Exception e) {
-            return new ResponseEntity(headers, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-
+        newEvent = eventService.save(event);
         return new ResponseEntity(newEvent, headers, HttpStatus.OK);
     }
 
@@ -95,12 +94,8 @@ public class EventController {
         Event newEvent;
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        try {
-            event.setId(id);
-            newEvent = eventService.save(event);
-        } catch (Exception e) {
-            return new ResponseEntity(headers, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        event.setId(id);
+        newEvent = eventService.save(event);
 
         return new ResponseEntity(newEvent, headers, HttpStatus.OK);
     }
@@ -113,12 +108,8 @@ public class EventController {
      */
     @DeleteMapping("/deleteEvent/{id}")
     public ResponseEntity deleteEvent(@PathVariable("id") int id) throws Exception {
-        try {
-            eventService.delete(id);
-            return new ResponseEntity(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        eventService.delete(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     /**

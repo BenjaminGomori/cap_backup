@@ -3,12 +3,8 @@ import com.enterprise.eventmanagementsystem.dto.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class EventDAO implements IEventDAO {
 
-    Map<Integer, Event> allEvents = new HashMap<>();
 
     @Autowired
     @Qualifier("eventRepository")

@@ -1,5 +1,4 @@
 package com.enterprise.eventmanagementsystem;
-import com.enterprise.eventmanagementsystem.dao.EventRepository;
 import com.enterprise.eventmanagementsystem.dto.Event;
 import com.enterprise.eventmanagementsystem.service.IEventService;
 import org.junit.jupiter.api.Test;

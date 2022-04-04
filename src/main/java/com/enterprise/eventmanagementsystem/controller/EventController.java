@@ -135,7 +135,6 @@ public class EventController {
      */
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable(value = "id") int id) throws Exception {
-
         this.eventService.delete(id);
         return "redirect:/";
     }

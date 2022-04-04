@@ -57,14 +57,13 @@
         <div class="input-group  mb-4 col-4">
             <span class="input-group-text" id="country">Country</span>
             <input type="text" th:field="*{country}" class="form-control" aria-label="Country"
-                   aria-describedby="state" required>
+                   aria-describedby="country" required>
         </div>
         <div class="input-group  mb-4 col-4">
             <span class="input-group-text" id="date">Date and Time</span>
             <input type="datetime-local" placeholder="Date" class="form-control" aria-label="Date"
                    aria-describedby="date" required>
         </div>
-        <input type="text" hidden th:field="*{date}" placeholder="Date" class="hid form-control mb-4 col-4" required>
         <div class="input-group  mb-4 col-4">
             <span class="input-group-text" id="description">Description</span>
             <input type="text" th:field="*{description}"

@@ -9,4 +9,5 @@ public interface IEventDAO {
     Event fetch(int eventId);
     Iterable<Event> fetchAll() throws Exception;
     Event save(Event event) throws Exception;
+    void deleteById(int id) throws Exception;
 }

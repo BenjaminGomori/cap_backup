@@ -17,7 +17,7 @@
                 crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script type="text/javascript" th:inline="javascript">
             $(function () {
                 $("#searchTerm").autocomplete({
@@ -97,6 +97,7 @@
             </table>
             <a th:href="@{/showNewEventForm}" class="btn btn-primary btn-sm mb-3"> Add Event </a>
         </div>
+        <div th:replace="fragments/footerUI :: footer"></div>
     </body>
 
 </html>

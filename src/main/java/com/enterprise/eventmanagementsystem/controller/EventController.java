@@ -1,5 +1,6 @@
 package com.enterprise.eventmanagementsystem.controller;
 import com.enterprise.eventmanagementsystem.dto.Event;
+import com.enterprise.eventmanagementsystem.exceptions.InvalidInputException;
 import com.enterprise.eventmanagementsystem.service.IEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-import com.enterprise.eventmanagementsystem.exceptions.InvalidInputException;
 
 
 /**
@@ -27,7 +27,7 @@ public class EventController {
 
     /**
      * List all events.
-     * @param model
+     * @param model Display all Events
      * @return The index page.
      * @throws Exception
      */
@@ -40,7 +40,7 @@ public class EventController {
 
     /**
      * Present New Event form.
-     * @param model
+     * @param model Allow user to create new event
      * @return new event page.
      * @throws Exception
      */
@@ -54,7 +54,7 @@ public class EventController {
 
     /**
      * Saves event to our database.
-     * @param event
+     * @param event Save event information
      * @return event information that will be saved in the database.
      * @throws Exception
      */
@@ -114,8 +114,8 @@ public class EventController {
 
     /**
      * Get event from the service. Set event as a model attribute to pre-populate the form.
-     * @param id Edit Event
-     * @param model
+     * @param id edit event
+     * @param model edit event
      * @return the edit event page .
      * @throws Exception
      */

@@ -47,7 +47,6 @@
                         description.html(ev.description);
                         edit.href = '/edit/'+ ui.item.value;
                         del.href = '/delete/'+ ui.item.value;
-                        $("#searchTerm").val("");
                         return false;
                     }
                 });
@@ -60,14 +59,14 @@
         </div>
         <div class="container my-2" style="text-align:center" ;>
             <h1>Event List</h1>
-            <table style="border: 1px solid #000;" class="table table-striped table-bordered table-responsive-md">
+            <table border="1" class="table table-striped table-bordered table-responsive-md">
                 <thead>
                     <tr>
                         <th>Event</th>
                         <th>Event Address</th>
                         <th>Event Date and Time</th>
                         <th>Event Description</th>
-                        <th>Actions</th>
+                        <th> Actions</th>
                     </tr>
                 </thead>
                 <tbody id="first-row" style="display: none;">

@@ -25,9 +25,6 @@ public class EventService implements IEventService {
     @Autowired
     IEventDAO eventDAO;
 
-    @Autowired
-    EventRepository eventRepository;
-
     public EventService(IEventDAO eventDAO) {
         this.eventDAO = eventDAO;
     }
@@ -49,8 +46,8 @@ public class EventService implements IEventService {
 
     @Override
     @CacheEvict(value = "delete", key = "#id")
-    public void delete(int id) {
-        this.eventRepository.deleteById(id);
+    public void delete(int id)throws Exception {
+        this.eventDAO.deleteById(id);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.enterprise.eventmanagementsystem.dao;
+
 import com.enterprise.eventmanagementsystem.dto.Event;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +14,7 @@ import java.util.Map;
 public class EventDAOStub implements IEventDAO {
 
     Map<Integer, Event> events = new HashMap<>();
-    int newEventId=1;
+    int newEventId = 1;
 
     @Override
     public Event fetch(int eventId) {
@@ -30,7 +30,7 @@ public class EventDAOStub implements IEventDAO {
     @Override
     public Event save(Event event) throws Exception {
         //when updating event id is not 0
-        if(event.getId()==0) {
+        if (event.getId() == 0) {
             event.setId(newEventId++);
         }
         events.put(event.getId(), event);
@@ -38,7 +38,7 @@ public class EventDAOStub implements IEventDAO {
     }
 
     @Override
-    public void deleteById(int id) throws Exception {
+    public void deleteById(int id) {
         events.remove(id);
     }
 }

@@ -19,8 +19,9 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script type="text/javascript" th:inline="javascript" src="/js/hide.js"></script>
+    <script type="text/javascript" th:inline="javascript" th:src="@{/js/hide.js}"></script>
 </head>
+
 <body>
 <div th:replace="fragments/topnav :: navbar">
 </div>
@@ -56,7 +57,7 @@
         <div class="input-group  mb-4 col-4">
             <span class="input-group-text" id="country">Country</span>
             <input type="text" th:field="*{country}" class="form-control" aria-label="Country"
-                   aria-describedby="state" required>
+                   aria-describedby="country" required>
         </div>
         <div class="input-group  mb-4 col-4">
             <span class="input-group-text" id="date">Date and Time</span>
@@ -77,9 +78,10 @@
     <hr>
 
     <a th:href="@{/}"> Back to the Events List</a>
-    <script src="/js/datetime.js"></script>
-    <script src="/static/js/datetime.js"></script>
+    <script th:src="@{/js/datetime.js}"></script>
+
 </div>
+<div th:replace="fragments/footerUI :: footer"></div>
 </body>
 
 </html>

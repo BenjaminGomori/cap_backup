@@ -3,7 +3,7 @@
 
 Design Document  
 
-Ali Ibrahim, Benjamin Gomori, Kevin Zhu, Son Bo
+Ali Ibrahim, Benjamin Gomori, Kevin Zhu
 
 ## Introduction  
 

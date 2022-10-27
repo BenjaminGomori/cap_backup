@@ -25,6 +25,28 @@ public class EventController {
     @Autowired
     IEventService eventService;
 
+//    public
+//    VirtualMachineTicket acquireTicket(final ManagedObjectReference vmMoRef, String ticketType)
+//            throws Exception {
+//        VirtualMachineTicket vmTicket = null;
+//        vmTicket = super.getPortType().acquireTicket(vmMor, ticketType);
+//        return vmTicket;
+//    }
+    /**
+     * Display student VM.
+     * @return capstone/vm page.
+     * @throws Exception
+     */
+    @GetMapping("/VM")
+    public String viewCapstonePage(Model model) throws Exception {
+
+        return "capstone";
+    }
+
+
+
+
+
     /**
      * List all events.
      * @param model Display all Events
